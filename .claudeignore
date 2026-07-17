@@ -1,0 +1,80 @@
+# ===========================================================================
+# MedicalGraphRAGSystem .claudeignore
+# Claude Code 忽略规则 - 减少上下文膨胀
+# ===========================================================================
+
+# --- Node.js（前端依赖，283MB+）---
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+.eggs/
+dist/
+build/
+*.whl
+*.so
+
+# --- 虚拟环境 ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- 环境变量 & 密钥 ---
+.env
+.env.*
+*.pem
+*.key
+secrets.yaml
+credentials.json
+
+# --- IDE & 编辑器 ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# --- 操作系统 ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- 测试 & 覆盖率 ---
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- 日志 ---
+*.log
+logs/
+
+# --- 项目特定 ---
+.spider_progress.json
+.qoder/
+
+# --- 旧文档（已归档）---
+docs/archive/
+docs/assets/img/
+
+# --- 打包 & 压缩 ---
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# --- 临时文件 ---
+tmp/
+temp/
+*.tmp
+
+# --- Git ---
+.git/

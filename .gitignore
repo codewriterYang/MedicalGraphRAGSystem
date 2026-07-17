@@ -1,0 +1,103 @@
+# ===========================================================================
+# MedicalGraphRAGSystem .gitignore
+# 企业级 Git 忽略规则
+# ===========================================================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+.eggs/
+dist/
+build/
+*.whl
+*.so
+
+# --- 虚拟环境 ---
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+pip-wheel-metadata/
+pip-log.txt
+
+# --- 环境变量 & 密钥（绝对不要提交！）---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.yaml
+credentials.json
+
+# --- IDE & 编辑器 ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+.project
+.classpath
+.settings/
+
+# --- Node.js（前端）---
+node_modules/
+frontend/dist/
+frontend/dist-ssr/
+*.local
+
+# --- 操作系统 ---
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- 测试 & 覆盖率 ---
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# --- 日志 ---
+*.log
+logs/
+*.log.*
+
+# --- 项目特定 ---
+data/
+.spider_progress.json
+.qoder/
+technical_communication_docs/
+backend/docs/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb
+
+# --- 打包 & 压缩 ---
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# --- 临时文件 ---
+tmp/
+temp/
+.tmp/
+*.tmp

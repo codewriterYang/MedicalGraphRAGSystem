@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "MedicalGraphRAGSystem"
+version = "1.0.0"
+description = "医药知识图谱智能问答系统"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    {name = "codewriterYang"},
+]
+
+dependencies = [
+    # 环境变量
+    "python-dotenv~=1.2",
+
+    # 数据爬取
+    "requests~=2.33",
+    "lxml~=5.4",
+
+    # LangChain 1.0 生态（全部锁定 1.x，不可混装 0.x）
+    "langchain~=1.3",
+    "langchain-core~=1.4",
+    "langchain-ollama~=1.1",
+    "langchain-openai~=1.2",
+    # "langchain-anthropic~=1.0",  # 仅在 LLM_PROVIDER=anthropic 时取消注释
+    "langgraph~=1.2",
+    "langsmith~=0.8",
+
+    # 知识图谱
+    "py2neo~=2021.2",
+
+    # 实体匹配与降级
+    "rapidfuzz~=3.14",
+    "pyahocorasick~=2.3",
+
+    # Web API
+    "fastapi~=0.136",
+    "uvicorn[standard]~=0.46",
+    "pydantic~=2.13",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest~=8.4",
+    "pytest-asyncio~=0.26",
+    "pytest-cov~=6.3",
+]
+dev = [
+    "MedicalGraphRAGSystem[test]",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["api*", "core*", "domain*", "data*", "dict*", "scripts*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "W",   # pycodestyle warnings
+    "UP",  # pyupgrade
+]
+ignore = ["E501"]  # line too long handled by formatter
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint.isort]
+known-first-party = ["backend", "backend.domain.qa_engine", "backend.domain.kbqa", "backend.domain.graphrag", "backend.domain.knowledge_graph", "backend.api"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true

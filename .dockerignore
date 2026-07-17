@@ -1,0 +1,48 @@
+# ===========================================================================
+# Docker 构建忽略（保持镜像体积小）
+# ===========================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node
+node_modules/
+web/node_modules/
+
+# 环境变量（通过 .env 注入，不打包进镜像）
+.env
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.idea/
+.vscode/
+
+# 测试 & 文档（不打包进镜像）
+tests/
+docs/
+doc/
+document/
+img/
+*.md
+!requirements.txt
+
+# 不需要的生产文件
+log/
+logs/
+*.log
+tmp/
+
+# Docker 自身
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# 构建产物（由 Docker 内部生成）
+web/dist/
